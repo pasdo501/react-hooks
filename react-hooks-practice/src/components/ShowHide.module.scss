@@ -1,0 +1,35 @@
+.list-base {
+    margin: 50px;
+    list-style-type: none;
+    font-size: 30px;
+    padding: 20px;
+    border-radius: 5px;
+
+    img {
+        display: block;
+        margin: 0 auto;
+        width: 300px;
+    }
+
+    button {
+        background: #222;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        width: 100px;
+        display: block;
+        font-size: 20px;
+        cursor: pointer;
+    }
+}
+
+.open {
+    composes: list-base;
+    border: 1px solid black;
+}
+
+.closed {
+    composes: list-base;
+    border: none;
+}

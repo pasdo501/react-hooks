@@ -5,7 +5,7 @@ const Home = ({ destinations }) => (
     <main>
         <p>
             This is the overview for all practice components. The links
-            displayed here are the same as in the nav bar.
+            displayed here are the same as in the nav bar (excluding this page itself).
         </p>
         <ul>
             {destinations.map(({ text, link }) => (
