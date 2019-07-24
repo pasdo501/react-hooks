@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 
 import Home from "./components/Home";
 import Theme from "./components/Theme";
@@ -41,9 +41,9 @@ function App() {
         <nav>
           {[makeDestinationObj("/", "Overview"), ...destinations].map(
             ({ link, text }) => (
-              <Link key={link} to={link}>
+              <NavLink exact key={link} to={link}>
                 {text}
-              </Link>
+              </NavLink>
             )
           )}
         </nav>
