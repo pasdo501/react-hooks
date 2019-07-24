@@ -5,6 +5,7 @@ import Home from "./components/Home";
 import Theme from "./components/Theme";
 import Todo from "./components/Todo";
 import ShowHide from "./components/ShowHide";
+import CharacterLimit from "./components/CharacterLimit";
 
 import "./App.css";
 
@@ -19,6 +20,7 @@ function App() {
         makeDestinationObj("/theme", "Theme", Theme),
         makeDestinationObj("/todo", "Todo", Todo),
         makeDestinationObj("/show-hide", "Show/Hide", ShowHide),
+        makeDestinationObj("/character-limit", "Character Limit", CharacterLimit)
     ];
 
     return (

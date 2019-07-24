@@ -1,0 +1,23 @@
+.main {
+    width: 200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+
+    button {
+        margin-top: .5rem;
+    }
+
+    button:not(disabled) {
+        cursor: pointer;
+    }
+
+    button:disabled {
+        cursor: not-allowed;
+    }
+}
+
+.textarea {
+    width: 200px;
+    height: 100px;
+}
