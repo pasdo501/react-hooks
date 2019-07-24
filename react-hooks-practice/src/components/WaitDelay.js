@@ -13,29 +13,37 @@ function Wait({ delay = 1000, placeholder, ui }) {
 
   useEffect(() => {
     console.log("In useEffect");
+    setWaiting(true);
     const timeout = setTimeout(() => {
       console.log("No longer waiting");
       setWaiting(false);
     }, delay);
 
     return () => {
-        console.log('Cleaning up');
+      console.log("Cleaning up");
       clearTimeout(timeout);
-      setWaiting(true);
     };
-  }, [delay]);
+  }, [delay, placeholder, ui]);
 
-  return waiting ? placeholder : ui;
+  return waiting === true ? placeholder : ui;
 }
 
 function WaitDelay() {
+  const [toggle, setToggle] = useState(false);
+
   return (
     <main style={{ textAlign: "center" }}>
+      <button onClick={() => setToggle(!toggle)}>Toggle loading text</button>
       <Wait
         delay={3000}
-        placeholder={<p>Waiting...</p>}
+        placeholder={toggle ? <p>Waiting...</p> : <p>Loading...</p>}
         ui={<p>This text should appear after 3 seconds.</p>}
       />
+      <p>
+        <em style={{ fontSize: `.65rem` }}>
+          Toggling the loading text will also reset the waiting timeout.
+        </em>
+      </p>
     </main>
   );
 }
