@@ -8,6 +8,7 @@ import ShowHide from "./components/ShowHide";
 import CharacterLimit from "./components/CharacterLimit";
 import WaitDelay from "./components/WaitDelay";
 import ApiRequests from "./components/ApiRequests";
+import UseWait from "./components/UseWait";
 
 import "./App.css";
 
@@ -25,6 +26,7 @@ function App() {
     makeDestinationObj("/character-limit", "Character Limit", CharacterLimit),
     makeDestinationObj("/wait-delay", "Wait/Delay", WaitDelay),
     makeDestinationObj("/api-requests", "API Requests", ApiRequests),
+    makeDestinationObj("/use-wait", "useWait", UseWait),
   ];
 
   return (

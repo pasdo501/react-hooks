@@ -45,7 +45,10 @@ function ApiRequests() {
   useEffect(() => {
     fetchPost(postIds[postIdIndex])
       .then((post) => setPost(post))
-      .catch((error) => setError(true));
+      .catch((error) => {
+        setError(true);
+        console.warn(error);
+      });
 
     return () => {
       setPost(null);
