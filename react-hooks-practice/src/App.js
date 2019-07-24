@@ -10,6 +10,7 @@ import WaitDelay from "./components/WaitDelay";
 import ApiRequests from "./components/ApiRequests";
 import UseWait from "./components/UseWait";
 import UseWindowDimensions from "./components/UseWindowDimensions";
+import UseFetch from "./components/UseFetch";
 
 import "./App.css";
 
@@ -33,6 +34,7 @@ function App() {
       "useWindowDimensions",
       UseWindowDimensions
     ),
+    makeDestinationObj("/use-fetch", "useFetch", UseFetch),
   ];
 
   return (
