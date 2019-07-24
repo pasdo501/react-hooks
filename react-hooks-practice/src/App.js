@@ -9,6 +9,7 @@ import CharacterLimit from "./components/CharacterLimit";
 import WaitDelay from "./components/WaitDelay";
 import ApiRequests from "./components/ApiRequests";
 import UseWait from "./components/UseWait";
+import UseWindowDimensions from "./components/UseWindowDimensions";
 
 import "./App.css";
 
@@ -27,6 +28,11 @@ function App() {
     makeDestinationObj("/wait-delay", "Wait/Delay", WaitDelay),
     makeDestinationObj("/api-requests", "API Requests", ApiRequests),
     makeDestinationObj("/use-wait", "useWait", UseWait),
+    makeDestinationObj(
+      "/use-window-dimensions",
+      "useWindowDimensions",
+      UseWindowDimensions
+    ),
   ];
 
   return (
