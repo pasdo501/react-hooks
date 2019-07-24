@@ -11,6 +11,7 @@ import ApiRequests from "./components/ApiRequests";
 import UseWait from "./components/UseWait";
 import UseWindowDimensions from "./components/UseWindowDimensions";
 import UseFetch from "./components/UseFetch";
+import UseFetchReducer from "./components/UseFetchReducer";
 
 import "./App.css";
 
@@ -35,6 +36,11 @@ function App() {
       UseWindowDimensions
     ),
     makeDestinationObj("/use-fetch", "useFetch", UseFetch),
+    makeDestinationObj(
+      "/use-fetch-reducer",
+      "useFetch (reducer)",
+      UseFetchReducer
+    ),
   ];
 
   return (
