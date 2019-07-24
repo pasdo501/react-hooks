@@ -6,49 +6,51 @@ import Theme from "./components/Theme";
 import Todo from "./components/Todo";
 import ShowHide from "./components/ShowHide";
 import CharacterLimit from "./components/CharacterLimit";
+import WaitDelay from "./components/WaitDelay";
 
 import "./App.css";
 
 const makeDestinationObj = (link, text, component) => ({
-    link,
-    text,
-    component,
+  link,
+  text,
+  component,
 });
 
 function App() {
-    const destinations = [
-        makeDestinationObj("/theme", "Theme", Theme),
-        makeDestinationObj("/todo", "Todo", Todo),
-        makeDestinationObj("/show-hide", "Show/Hide", ShowHide),
-        makeDestinationObj("/character-limit", "Character Limit", CharacterLimit)
-    ];
+  const destinations = [
+    makeDestinationObj("/theme", "Theme", Theme),
+    makeDestinationObj("/todo", "Todo", Todo),
+    makeDestinationObj("/show-hide", "Show/Hide", ShowHide),
+    makeDestinationObj("/character-limit", "Character Limit", CharacterLimit),
+    makeDestinationObj("/wait-delay", "Wait/Delay", WaitDelay),
+  ];
 
-    return (
-        <Router>
-            <div>
-                <nav>
-                    {[makeDestinationObj("/", "Overview"), ...destinations].map(
-                        ({ link, text }) => (
-                            <Link key={link} to={link}>
-                                {text}
-                            </Link>
-                        )
-                    )}
-                </nav>
+  return (
+    <Router>
+      <div>
+        <nav>
+          {[makeDestinationObj("/", "Overview"), ...destinations].map(
+            ({ link, text }) => (
+              <Link key={link} to={link}>
+                {text}
+              </Link>
+            )
+          )}
+        </nav>
 
-                <hr style={{ marginBottom: 0 }} />
+        <hr style={{ marginBottom: 0 }} />
 
-                <Route
-                    exact
-                    path="/"
-                    component={() => <Home destinations={destinations} />}
-                />
-                {destinations.map(({ link, component }) => (
-                    <Route key={link} path={link} component={component} />
-                ))}
-            </div>
-        </Router>
-    );
+        <Route
+          exact
+          path="/"
+          component={() => <Home destinations={destinations} />}
+        />
+        {destinations.map(({ link, component }) => (
+          <Route key={link} path={link} component={component} />
+        ))}
+      </div>
+    </Router>
+  );
 }
 
 export default App;
