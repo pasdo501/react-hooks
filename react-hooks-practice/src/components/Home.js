@@ -2,8 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Home = ({ destinations }) => (
-    <div>
-        This is the overview for all practice components.
+    <main>
+        <p>
+            This is the overview for all practice components. The links
+            displayed here are the same as in the nav bar.
+        </p>
         <ul>
             {destinations.map(({ text, link }) => (
                 <li key={link}>
@@ -11,7 +14,7 @@ const Home = ({ destinations }) => (
                 </li>
             ))}
         </ul>
-    </div>
+    </main>
 );
 
 export default Home;

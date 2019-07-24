@@ -19,10 +19,12 @@ function App() {
         <Router>
             <div>
                 <nav>
-                    <Link to="/">Home</Link>
+                    {[makeDestinationObj("/", "Overview"), ...destinations].map(({ link, text}) => (
+                      <Link key={link} to={link}>{text}</Link>
+                    ))}
                 </nav>
 
-                <hr />
+                <hr style={{ marginBottom: 0 }} />
 
                 <Route
                     exact

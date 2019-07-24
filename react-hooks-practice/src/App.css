@@ -1,7 +1,14 @@
 nav {
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+}
+
+nav a {
     padding: 1rem;
 }
 
 main {
+    padding: 1.5rem;
     min-height: 90vh;
 }
