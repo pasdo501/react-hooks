@@ -25,15 +25,24 @@ function CharacterLimit() {
     document.title = titleText;
   }, [input]);
 
+  const handleSubmit = () => {
+    console.log("Submitted");
+    setInput("");
+  };
+
   return (
     <main className={styles.main}>
       <textarea
+        type="text"
         className={styles.textarea}
         placeholder="What's on your mind?"
         value={input}
         onChange={(e) => setInput(e.target.value)}
       />
-      <button disabled={input.length === 0 || input.length > 240}>
+      <button
+        disabled={input.length === 0 || input.length > 240}
+        onClick={handleSubmit}
+      >
         Submit
       </button>
     </main>
