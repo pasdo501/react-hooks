@@ -1,5 +1,5 @@
 import React from "react";
-import "./Theme.css";
+import styles from "./Theme.module.css";
 
 /*
   INSTRUCTIONS:
@@ -40,15 +40,15 @@ const Theme = () => {
     const toLight = () => setTheme("light");
 
     return (
-        <main className={theme}>
+        <main className={styles[theme]}>
             {theme === "light" ? (
-                <button onClick={toDark}>
+                <button className={styles.button} onClick={toDark}>
                     <span role="img" aria-label="Flashlight">
                         🔦
                     </span>
                 </button>
             ) : (
-                <button onClick={toLight}>
+                <button className={styles.button} onClick={toLight}>
                     <span role="img" aria-label="Lightbulb">
                         💡
                     </span>

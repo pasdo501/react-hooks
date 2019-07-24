@@ -1,0 +1,12 @@
+.light {
+    background: #fff;
+}
+
+.dark {
+    background: #000;
+}
+
+.button {
+    font-size: 80px;
+    background: transparent;
+}
