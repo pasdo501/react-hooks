@@ -13,6 +13,7 @@ import UseWindowDimensions from "./components/UseWindowDimensions";
 import UseFetch from "./components/UseFetch";
 import UseFetchReducer from "./components/UseFetchReducer";
 import ComplexForm from "./components/ComplexForm";
+import ClickGame from "./components/ClickGame";
 
 import "./App.css";
 
@@ -43,6 +44,7 @@ function App() {
       UseFetchReducer
     ),
     makeDestinationObj("/complex-form", "Complex Form", ComplexForm),
+    makeDestinationObj("/click-game", "Click Game", ClickGame),
   ];
 
   return (
