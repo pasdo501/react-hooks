@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import LocaleContext from "./LocaleContext";
 
 function EnglishNav({ toggleLocale }) {
@@ -7,13 +7,13 @@ function EnglishNav({ toggleLocale }) {
     <nav>
       <ul>
         <li>
-          <Link to="/locale-context">Home</Link>
+          <NavLink exact to="/locale-context">Home</NavLink>
         </li>
         <li>
-          <Link to="/locale-context/blog">Blog</Link>
+          <NavLink to="/locale-context/blog">Blog</NavLink>
         </li>
         <li>
-          <Link to="/locale-context/about">About</Link>
+          <NavLink to="/locale-context/about">About</NavLink>
         </li>
       </ul>
       <button onClick={toggleLocale}>Español</button>
@@ -26,13 +26,13 @@ function SpanishNav({ toggleLocale }) {
     <nav className="nav">
       <ul>
         <li>
-          <Link to="/locale-context">Inicio</Link>
+          <NavLink exact to="/locale-context">Inicio</NavLink>
         </li>
         <li>
-          <Link to="/locale-context/blog">Blog</Link>
+          <NavLink to="/locale-context/blog">Blog</NavLink>
         </li>
         <li>
-          <Link to="/locale-context/about">Sobre Nosotros</Link>
+          <NavLink to="/locale-context/about">Sobre Nosotros</NavLink>
         </li>
       </ul>
       <button onClick={toggleLocale}>English</button>
