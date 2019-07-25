@@ -12,6 +12,7 @@ import UseWait from "./components/UseWait";
 import UseWindowDimensions from "./components/UseWindowDimensions";
 import UseFetch from "./components/UseFetch";
 import UseFetchReducer from "./components/UseFetchReducer";
+import ComplexForm from "./components/ComplexForm";
 
 import "./App.css";
 
@@ -41,6 +42,7 @@ function App() {
       "useFetch (reducer)",
       UseFetchReducer
     ),
+    makeDestinationObj("/complex-form", "Complex Form", ComplexForm),
   ];
 
   return (
