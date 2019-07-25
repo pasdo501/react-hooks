@@ -1,0 +1,47 @@
+.localeApp {
+  font-family: sans-serif;
+  text-align: center;
+
+  li {
+    list-style-type: none;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+
+    button {
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    ul {
+      display: flex;
+    }
+
+    li {
+      padding: 10px;
+
+      a {
+        padding: 0px;
+      }
+    }
+  }
+
+  .employees {
+    text-align: left;
+
+    h3 {
+      margin: 0;
+    }
+
+    li {
+      margin: 20px;
+    }
+  }
+
+  .home p {
+    font-size: 30px;
+  }
+}

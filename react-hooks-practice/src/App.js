@@ -14,6 +14,7 @@ import UseFetch from "./components/UseFetch";
 import UseFetchReducer from "./components/UseFetchReducer";
 import ComplexForm from "./components/ComplexForm";
 import ClickGame from "./components/ClickGame";
+import LocaleContextRoot from "./components/LocaleContext";
 
 import "./App.css";
 
@@ -45,6 +46,7 @@ function App() {
     ),
     makeDestinationObj("/complex-form", "Complex Form", ComplexForm),
     makeDestinationObj("/click-game", "Click Game", ClickGame),
+    makeDestinationObj("/locale-context", "Locale Context", LocaleContextRoot),
   ];
 
   return (
