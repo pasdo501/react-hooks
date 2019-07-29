@@ -111,7 +111,7 @@ export default function Popular () {
       fetchPopularRepos(selectedLanguage)
         .then((repos) => {
           dispatch({ type: 'success', selectedLanguage, repos})
-          fetchedLanguages.current.concat(selectedLanguage)
+          fetchedLanguages.current.push(selectedLanguage)
         })
         .catch((error) => dispatch({type: 'error', error }))
     }
