@@ -74,19 +74,23 @@ function resultsReducer(state, action) {
   }
 }
 
-export default function Results ({ location }) {
+export default function Results({ location }) {
   const { playerOne, playerTwo } = queryString.parse(location.search);
-  const [state, dispatch] = React.useReducer(
-    resultsReducer, 
-    { winner: null, loser: null, error: null, loading: true }
-  );
+  const [state, dispatch] = React.useReducer(resultsReducer, {
+    winner: null,
+    loser: null,
+    error: null,
+    loading: true,
+  });
 
   React.useEffect(() => {
     battle([playerOne, playerTwo])
-      .then((players) => dispatch({ type: "success", winner: players[0], loser: players[1] }))
+      .then((players) =>
+        dispatch({ type: "success", winner: players[0], loser: players[1] })
+      )
       .catch(({ message }) => dispatch({ type: "error", message }));
   }, [playerOne, playerTwo]);
-  
+
   const { winner, loser, error, loading } = state;
 
   if (loading === true) {
