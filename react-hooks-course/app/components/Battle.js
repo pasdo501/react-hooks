@@ -102,26 +102,28 @@ PlayerPreview.propTypes = {
   label: PropTypes.string.isRequired
 }
 
-export default class Battle extends React.Component {
-  state = {
-    playerOne: null,
-    playerTwo: null,
-  }
-  handleSubmit = (id, player) => {
-    this.setState({
-      [id]: player
-    })
-  }
-  handleReset = (id) => {
-    this.setState({
-      [id]: null
-    })
-  }
-  render() {
-    const { playerOne, playerTwo } = this.state
+export default function Battle () {
+  const [playerOne, setPlayerOne] = React.useState(null)
+  const [playerTwo, setPlayerTwo] = React.useState(null)
 
-    return (
-      <React.Fragment>
+  const handleSubmit = (id, player) => {
+    if (id === 'playerOne') {
+      setPlayerOne(player)
+    } else {
+      setPlayerTwo(player)
+    }
+  }
+
+  const handleReset = (id) => {
+    if (id === 'playerOne') {
+      setPlayerOne(null)
+    } else {
+      setPlayerTwo(null)
+    }
+  }
+
+  return (
+    <React.Fragment>
         <Instructions />
 
         <div className='players-container'>
@@ -130,24 +132,24 @@ export default class Battle extends React.Component {
             {playerOne === null
               ? <PlayerInput
                   label='Player One'
-                  onSubmit={(player) => this.handleSubmit('playerOne', player)}
+                  onSubmit={(player) => handleSubmit('playerOne', player)}
                 />
               : <PlayerPreview
                   username={playerOne}
                   label='Player One'
-                  onReset={() => this.handleReset('playerOne')}
+                  onReset={() => handleReset('playerOne')}
                 />
             }
 
             {playerTwo === null
               ? <PlayerInput
                   label='Player Two'
-                  onSubmit={(player) => this.handleSubmit('playerTwo', player)}
+                  onSubmit={(player) => handleSubmit('playerTwo', player)}
                 />
               : <PlayerPreview
                   username={playerTwo}
                   label='Player Two'
-                  onReset={() => this.handleReset('playerTwo')}
+                  onReset={() => handleReset('playerTwo')}
                 />
             }
           </div>
@@ -166,6 +168,5 @@ export default class Battle extends React.Component {
           )}
         </div>
       </React.Fragment>
-    )
-  }
+  )
 }
