@@ -106,21 +106,13 @@ export default function Battle () {
   const [playerOne, setPlayerOne] = React.useState(null)
   const [playerTwo, setPlayerTwo] = React.useState(null)
 
-  const handleSubmit = (id, player) => {
-    if (id === 'playerOne') {
-      setPlayerOne(player)
-    } else {
-      setPlayerTwo(player)
-    }
-  }
+  const handleSubmit = (id, player) => id === 'playerOne'
+    ? setPlayerOne(player)
+    : setPlayerTwo(player)
 
-  const handleReset = (id) => {
-    if (id === 'playerOne') {
-      setPlayerOne(null)
-    } else {
-      setPlayerTwo(null)
-    }
-  }
+  const handleReset = (id) => id === 'playerOne'
+    ? setPlayerOne(null)
+    : setPlayerTwo(null)
 
   return (
     <React.Fragment>
