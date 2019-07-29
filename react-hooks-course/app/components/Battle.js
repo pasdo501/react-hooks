@@ -5,7 +5,7 @@ import ThemeContext from '../contexts/theme'
 import { Link } from 'react-router-dom'
 
 function Instructions () {
-  const { theme } = React.useContext(ThemeContext)
+  const theme = React.useContext(ThemeContext)
   return (
     <div className='instructions-container'>
       <h1 className='center-text header-lg'>
@@ -30,7 +30,7 @@ function Instructions () {
 }
 
 function PlayerInput ({ onSubmit, label }) {
-  const { theme } = React.useContext(ThemeContext);
+  const theme = React.useContext(ThemeContext);
   const [username, setUsername] = React.useState('');
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -71,7 +71,7 @@ PlayerInput.propTypes = {
 }
 
 function PlayerPreview ({ username, onReset, label }) {
-  const { theme } = React.useContext(ThemeContext)
+  const theme = React.useContext(ThemeContext)
   return (
     <div className='column player'>
       <h3 className='player-label'>{label}</h3>
