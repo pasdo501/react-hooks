@@ -4,51 +4,56 @@ import { fetchMainPosts } from '../utils/api'
 import Loading from './Loading'
 import PostsList from './PostsList'
 
-export default class Posts extends React.Component {
-  state = {
-    posts: null,
-    error: null,
-    loading: true,
-  }
-  componentDidMount() {
-    this.handleFetch()
-  }
-  componentDidUpdate(prevProps) {
-    if (prevProps.type !== this.props.type) {
-      this.handleFetch()
-    }
-  }
-  handleFetch () {
-    this.setState({
-      posts: null,
-      error: null,
-      loading: true
-    })
-
-    fetchMainPosts(this.props.type)
-      .then((posts) => this.setState({
-        posts,
+function postsReducer (state, action) {
+  switch (action.type) {
+    case 'fetch':
+      return {
+        posts: null,
+        error: null,
+        loading: true
+      }
+    case 'success':
+        return {
+          posts: action.posts,
+          loading: false,
+          error: null
+        }
+    case 'error':
+      return {
+        ...state,
         loading: false,
-        error: null
-      }))
-      .catch(({ message }) => this.setState({
-        error: message,
-        loading: false
-      }))
+        error: action.message
+      }
+    default:
+      throw new Error("Invalid action type");
   }
-  render() {
-    const { posts, error, loading } = this.state
+}
 
-    if (loading === true) {
-      return <Loading />
-    }
+export default function Posts ({ type }) {
+  const [state, dispatch] = React.useReducer(
+    postsReducer,
+    { posts: null, error: null, loading: true }
+  );
 
-    if (error) {
-      return <p className='center-text error'>{error}</p>
-    }
+  React.useEffect(() => {
+    dispatch({ type: 'fetch' })
 
-    return <PostsList posts={posts} />
+    fetchMainPosts(type)
+      .then((posts) => dispatch({ type: 'success', posts }))
+      .catch(({ message }) => dispatch({ type: 'error', message }))
+  }, [type])
+
+  const { posts, error, loading } = state;
+
+  if (loading === true) {
+    return <Loading />
   }
+
+  if (error) {
+    return <p className="center-text error">{error}</p>
+  }
+
+  return <PostsList posts={posts} />;
 }
 
 Posts.propTypes = {
